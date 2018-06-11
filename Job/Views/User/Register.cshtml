@@ -1,0 +1,44 @@
+﻿@model Job.Models.SignupVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+</head>
+<body>
+    @using (Html.BeginForm("Register", "User", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+
+        <h1>Signup</h1>
+        <div>
+            @if (ViewBag.Message != null)
+            {
+                <label style="color:maroon"> @ViewBag.Message </label>
+                <br /><br />
+            }
+
+            @if (TempData["ErrorMSG"] != null)
+            {
+                <label style="color:maroon"> @TempData["ErrorMSG"] </label>
+                <br /><br />
+            }
+            @Html.TextBoxFor(s => s.Name, new { @placeholder = "Full Name" })
+            <br /><br />
+            @Html.TextBoxFor(s => s.Username, new { @placeholder = "Username" })
+            <br /><br />
+            @Html.PasswordFor(s => s.Password, new { @placeholder = "Password" })
+            <br /><br />
+            @Html.PasswordFor(s => s.ConfrimPassword, new { @placeholder = "Confirm Password" })
+            <br /><br />
+            <button type="submit">Signup</button>
+        </div>
+    }
+</body>
+</html>
