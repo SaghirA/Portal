@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Job.Models.JobDetail>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="panel-body">
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Meter ID
+                    </th>
+                    <th>
+                        Account No
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.JobTitle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.City)
+                        </td>
+
+                        <td>
+                            <a title="Edit" href="@Url.Action("Edit", "Job", new { id = item.JobID }) "><i class="fa fa-fw fa-edit "></i></a>
+                            <!--<label>|</label>-->
+                             <a title="Detail" href="@Url.Action("Details", "Job", new { id = item.JobID }) "><i class="fa fa-fw fa-list "></i></a>
+                            @*@if(Convert.ToInt16(Session["roleid"])==1)*@
+
+                            <label>|</label>
+                            <a title="Delete" href="@Url.Action("Delete", "Job", new { id = item.JobID }) "><i class="fa fa-fw fa-trash "></i></a>
+
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
