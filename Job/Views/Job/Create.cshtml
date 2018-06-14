@@ -1,0 +1,126 @@
+﻿@model Job.Models.JobDetail
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="col-lg-4"></div>
+                <div class="form-group col-lg-8">
+                    @Html.LabelFor(model => model.JobTitle, "Title")
+                    @Html.TextBoxFor(model => model.JobTitle, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.JobTitle)
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <div class="form-group col-lg-8">
+                    @Html.LabelFor(model => model.DatePosted, "Date Posted")
+                    @Html.TextBoxFor(model => model.DatePosted, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.DatePosted)
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+                <div class="col-lg-4"></div>
+                <div class="form-group col-lg-8">
+                    @Html.LabelFor(model => model.JobNature, "Job Nature")
+                    @Html.TextBoxFor(model => model.JobNature, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.JobNature)
+                </div>
+
+            </div>
+            <div class="col-lg-6">
+
+                <div class="form-group col-lg-8">
+                    @Html.LabelFor(model => model.Channel, "Channel")
+                    @Html.TextBoxFor(model => model.Channel, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Channel)
+                </div>
+
+            </div>
+            <div class="col-lg-6">
+                <div class="col-lg-4"></div>
+                <div class="form-group col-lg-8">
+                    @Html.LabelFor(model => model.City, "City")
+                    @Html.TextBoxFor(model => model.City, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.City)
+                </div>
+
+            </div>
+            <div class="col-lg-6">
+
+                <div class="form-group col-lg-8">
+                    @Html.LabelFor(model => model.Category, "Category")
+                    @Html.TextBoxFor(model => model.Category, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Category)
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+                <div class="col-lg-4"></div>
+                <div class="form-group col-lg-8">
+                    @Html.LabelFor(model => model.EducationLevel, "EducationLevel")
+                    @Html.TextBoxFor(model => model.EducationLevel, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.EducationLevel)
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+                
+                <div class="form-group col-lg-8">
+                    @Html.LabelFor(model => model.Description, "Description")
+                    @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Description)
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+                <div class="col-lg-4"></div>
+                <div class="form-group col-lg-8">
+                    @Html.LabelFor(model => model.ImagePath, "Upload File")
+                    @Html.TextBoxFor(model => model.ImagePath, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ImagePath)
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="col-lg-2"></div>
+                <div class="form-group col-lg-8">
+                    <button class="btn btn-primary" type="submit" value="Create">
+                        <i class="fa fa-save"></i>&nbsp;Save
+                    </button>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
